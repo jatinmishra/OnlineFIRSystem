@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewBag.Title = "DeletePoliceStation";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+
+
+<div class="container">
+    <h2>Delete Police Station</h2>
+    <br />
+    <br />
+    @using (Html.BeginForm("deletePoliceStation", "DeletePoliceStation"))
+    {
+        <label for="sel1">Select Police Station ID</label>
+        <br />
+
+        <select class="form-control" name="stationId">
+            @foreach (var sl in (List<string>)ViewBag.ListStation)
+            {
+                <option>@sl</option>
+            }
+        </select>
+        <br />
+        <button type="submit" onclick="ShowProgress()" class="btn btn-primary">Delete Police Station</button>
+    }
+    <br />
+    <br />
+    <div class="saveSuccess" align="center" style="visibility:@ViewBag.Visibility;">
+        <img src="~/Content/Images/tick.jpg" style="max-height:50px; max-width:50px; background:white;" />
+        Police Station deleted successfully.
+    </div>
+    <div class="saveError" align="center" style="visibility:@ViewBag.VisibilityE;">
+        <img src="~/Content/Images/error.png" style="max-height:50px; max-width:50px; background:white;" />
+        Error in deleting police station .
+    </div>
+</div>
+<div class="loading" align="center">
+    Loading. Please wait.<br />
+    <br />
+    @*<img src="~/Content/ajax-loader.gif" style="max-height:inherit; max-width:inherit;" />*@
+    <i class="fa fa-2x fa-spinner fa-spin"></i>
+</div>

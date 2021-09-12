@@ -1,0 +1,199 @@
+﻿@model OnlineFIR.WebApp.Models.ViewModel.AddFIRView
+
+@{
+    ViewBag.Title = "RegisterFIR";
+    Layout = "~/Views/Shared/_ClientLayout.cshtml";
+}
+<style>
+
+
+    input[type=text], input[type=email], input[type=tel], select, textarea {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        margin-top: 6px;
+        margin-bottom: 16px;
+        resize: vertical;
+    }
+
+    input[type=submit] {
+        background-color: #4CAF50;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+        input[type=submit]:hover {
+            background-color: #45a049;
+        }
+
+    /*.container {
+        border-radius: 5px;
+
+        padding: 20px;
+    }*/
+    
+</style>
+
+<div class="container">
+
+    @using (Html.BeginForm("RegisterFIR", "FIR", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+
+        @*@{
+                ((FIRController)this.ViewContext.Controller).LoadStationList();
+            }*@
+
+        <br />
+        <br />
+        <br />
+        <h2 class="wow fadeInLeft animated" style="visibility: visible; animation-name: fadeInLeft;">Register A New FIR</h2>
+        <br />
+        <br />
+        <h3 class="wow fadeInRight animated" style="visibility: visible; font-size:20px; animation-name: fadeInRight;">Fill the following form to register a FIR. Check out the <a style="font-style:italic; color:black" href="~/HowToFileFIR/HowToFileFIR">"How To File a FIR"</a> to get the detailed instruction to file the FIR </h3>
+        @*   <h2 style="font-size:20px; line-height:20px;">Also remember to check the <a href="HowToFileFIR/HowToFileFIR">How To File a FIR </a>to get the detailed instruction to file the FIR. </h2>*@
+        <br />
+        <div class="form-horizontal">
+
+
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+            <div class="box_cnt" style="background:#ededed;">
+                <div class="row">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.station_id, htmlAttributes: new { @class = "control-label col-md-4" })
+                        <br />
+                        @Html.ValidationMessageFor(model => model.station_id, "", new { @class = "text-danger" })
+                        <div class="col-md-10">
+                            @*@Html.EditorFor(model => model.station_id, new { htmlAttributes = new { @class = "form-control" } })*@
+                            @*@Html.DropDownList(model => model.station_id, new SelectList(@ViewBag.ListS), htmlAttributes: new { @class = "form-control" })*@
+                            @*@Html.DropDownList("accountid", new SelectList(ViewBag.ListS, "AccountID", "AccountName"))*@
+
+                            <select class="form-control" name="selStation">
+                                <option>--Select Station ID--</option>
+                                @foreach (var sl in
+            (List
+            <string>
+            )ViewBag.ListS)
+            {
+                    <option>@sl</option>
+}
+                            </select>
+
+                            <br />
+                        </div>
+                        @*<div class="col-md-offset-2 col-md-10">
+            <input type="submit" formaction="LoadStationList" value="Load Station List" class="btn btn-primary" />
+        </div>*@
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.fir_complaintnee_name, htmlAttributes: new { @class = "control-label col-md-4" })
+                        <br />
+                        @Html.ValidationMessageFor(model => model.fir_complaintnee_name, "", new { @class = "text-danger" })
+
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.fir_complaintnee_name, new { htmlAttributes = new { @class = "form-control" } })
+                            <br />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.aadhar_num, htmlAttributes: new { @class = "control-label col-md-4" })
+                        <br />
+                        @Html.ValidationMessageFor(model => model.aadhar_num, "", new { @class = "text-danger" })
+
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.aadhar_num, new { htmlAttributes = new { @class = "form-control" } })
+                            <br />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.email, htmlAttributes: new { @class = "control-label col-md-4" })
+                        <br />
+                        @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
+
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control" } })
+                            <br />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.fir_complaintnee_mob_no, htmlAttributes: new { @class = "control-label col-md-4" })
+                        <br />
+                        @Html.ValidationMessageFor(model => model.fir_complaintnee_mob_no, "", new { @class = "text-danger" })
+
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.fir_complaintnee_mob_no, new { htmlAttributes = new { @class = "form-control" } })
+                            <br />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.fir_subject, htmlAttributes: new { @class = "control-label col-md-4" })
+                        <br />
+                        @Html.ValidationMessageFor(model => model.fir_subject, "", new { @class = "text-danger" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.fir_subject)
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.fir_file_path, htmlAttributes: new { @class = "control-label col-md-4" })
+                        <br />
+                        @Html.ValidationMessageFor(model => model.fir_file_path, "", new { @class = "text-danger" })
+
+                        <div class="col-md-10">
+                            @*@Html.EditorFor(model => model.fir_file_path, new { htmlAttributes = new { @class = "form-control" } })*@
+                            @*@Html.EditorFor(model => model.fir_file_path,new { htmlAttributes = new { @class = "form-control", type = "file", accept = "text/*" } })*@
+                            <br />
+                            <input type="file" name="file" id="file" accept=".txt" /><br><br>
+                           <p style="color:red; font-size:18px;"> @ViewBag.Message</p>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="File FIR" class="btn btn-primary" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    }
+</div>
+<script>
+    $(function () {
+        $("#camera-caraousel").hide();
+        $("#contact-form").hide();
+    });
+ 
+</script>
+@*
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>*@

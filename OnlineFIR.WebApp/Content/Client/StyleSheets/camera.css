@@ -1,0 +1,248 @@
+/*========================================================
+                        Camera
+=========================================================*/
+.camera_container {
+  position: relative;
+  padding-bottom: 36.458333%;
+}
+@media (max-width: 822.85715038px) {
+  .camera_container {
+    padding-bottom: 300px;
+  }
+}
+.camera_wrap {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  margin-bottom: 0 !important;
+  height: 100%;
+  background: #fff;
+  z-index: 0;
+}
+.camera_wrap img {
+  max-width: none !important;
+}
+.camera_fakehover {
+  height: 100%;
+  min-height: 60px;
+  position: relative;
+  width: 100%;
+}
+.camera_src {
+  display: none;
+}
+.cameraCont,
+.cameraContents {
+  height: 100%;
+  position: relative;
+  width: 100%;
+  z-index: 1;
+}
+.cameraSlide {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+.cameraContent {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: none;
+}
+.camera_target {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  overflow: hidden;
+  text-align: left;
+  z-index: 0;
+}
+.camera_overlayer {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  overflow: hidden;
+  z-index: 0;
+}
+.camera_target_content {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  overflow: hidden;
+  z-index: 2;
+}
+.camera_loader {
+  background: #ffffff url(../images/camera-loader.gif) no-repeat center;
+  border: 1px solid #ffffff;
+  border-radius: 18px;
+  height: 36px;
+  left: 50%;
+  overflow: hidden;
+  position: absolute;
+  margin: -18px 0 0 -18px;
+  top: 50%;
+  width: 36px;
+  z-index: 3;
+}
+.camera_nav_cont {
+  height: 65px;
+  overflow: hidden;
+  position: absolute;
+  right: 9px;
+  top: 15px;
+  width: 120px;
+  z-index: 4;
+}
+.camerarelative {
+  overflow: hidden;
+  position: relative;
+}
+.imgFake {
+  cursor: pointer;
+}
+.camera_command_wrap .hideNav {
+  display: none;
+}
+.camera_command_wrap {
+  left: 0;
+  position: relative;
+  right: 0;
+  z-index: 4;
+}
+.showIt {
+  display: none;
+}
+.camera_clear {
+  clear: both;
+  display: block;
+  height: 1px;
+  margin: -1px 0 25px;
+  position: relative;
+}
+.camera_caption {
+  display: none;
+}
+.cameraContent .camera_caption {
+  display: block;
+}
+/*================   Custom Layout&Styles   =====================*/
+.camera_caption {
+  position: relative;
+  text-align: center;
+  color: #fff;
+  text-transform: uppercase;
+  padding-top: 248px;
+}
+.camera_caption > div {
+  height: 100%;
+}
+.camera_caption .container {
+  padding-left: 71px;
+  padding-right: 68px;
+}
+.camera_caption .title_wrap {
+  width: 100%;
+  padding: 8px 7px;
+  border: 2px solid rgba(17, 17, 17, 0.5);
+  display: inline-block;
+  box-sizing: border-box;
+}
+.camera_caption .title_wrap .title_content {
+  padding: 71px 0 77px;
+  background: rgba(17, 17, 17, 0.8);
+  box-sizing: border-box;
+  letter-spacing: 8px;
+}
+.lt-ie9 .camera_caption .title_wrap .title_content {
+  background: none;
+  -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#cc111111', endColorstr='#cc111111');
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#cc111111', endColorstr='#cc111111');
+  zoom: 1;
+}
+@media (min-width: 1199px) and (max-width: 1828px) {
+  .camera_caption {
+    padding-top: 167px;
+  }
+  .camera_caption .title_content {
+    padding: 61px 0 67px !important;
+  }
+}
+@media (min-width: 980px) and (max-width: 1199px) {
+  .camera_caption {
+    padding-top: 94px;
+  }
+  .camera_caption .title_content {
+    padding: 56px 0 62px !important;
+  }
+}
+@media (max-width: 979px) {
+  .camera_caption .container {
+    padding: 0;
+  }
+}
+@media (min-width: 768px) and (max-width: 979px) {
+  .camera_caption {
+    padding-top: 80px;
+  }
+  .camera_caption .title_content {
+    padding: 41px 0 47px !important;
+  }
+  .camera_caption .title_content h2 {
+    font-size: 30px !important;
+    line-height: 30px !important;
+  }
+}
+@media (max-width: 767px) {
+  .camera_caption {
+    padding-top: 80px;
+  }
+  .camera_caption .title_content {
+    padding: 31px 0 37px !important;
+  }
+  .camera_caption .title_content h2 {
+    font-size: 20px !important;
+    line-height: 20px !important;
+  }
+}
+.camera_pag_ul {
+  text-align: center;
+  margin-top: -43px;
+}
+.camera_pag_ul li {
+  display: inline-block;
+  width: 4px;
+  height: 4px;
+  line-height: 8px;
+  text-align: center;
+  cursor: pointer;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  -moz-transition: 0.3s all ease;
+  -o-transition: 0.3s all ease;
+  -webkit-transition: 0.3s all ease;
+  transition: 0.3s all ease;
+}
+.camera_pag_ul li.cameracurrent,
+.camera_pag_ul li:hover {
+  background: #fff;
+}
+.camera_pag_ul li + li {
+  margin-left: 11px;
+}
+.camera_pag_ul li > span {
+  display: none;
+}

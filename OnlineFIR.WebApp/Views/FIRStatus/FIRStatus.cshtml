@@ -1,0 +1,57 @@
+﻿
+@{
+    ViewBag.Title = "FIRStatus";
+    Layout = "~/Views/Shared/_ClientLayout.cshtml";
+}
+
+
+@using (Html.BeginForm(FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="container">
+        <br />
+        <br />
+        <br />
+        <h2 class="wow fadeInLeft animated" style="visibility: visible; animation-name: fadeInLeft;">Check Status of FIR</h2>
+        <br />
+        <br />
+        <h3 class="wow fadeInRight animated" style="visibility: visible; animation-name: fadeInRight;">Please Enter FIR ID below to check status.</h3>
+        <br />
+        <div class="box_cnt" style="background:#ededed; min-height:200px;">
+            <div style="float:left;">
+                <div class="form-horizontal">
+
+                    <div class="form-group">
+                        <div class="control-label col-md-2">Enter FIR ID</div>
+                        <div class="col-md-10">
+                            @Html.TextBox("firID")
+                            <br />
+                            <br />
+                            <br />
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Search Status" class="btn btn-primary" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-offset-2 col-md-10" style="font-size:20px;">
+                    <p style="color:red">@ViewBag.Error</p>
+                    <p style="color:chocolate">@ViewBag.Pending</p>
+                    <p style="color:green">@ViewBag.InProcess</p>
+                </div>
+            </div>
+            
+        </div>
+        
+    </div>
+}
+<script>
+    $(function () {
+        $("#camera-caraousel").hide();
+        $("#contact-form").hide();
+    });
+</script>

@@ -1,0 +1,238 @@
+<!DOCTYPE HTML>  
+<html>  
+<head>  
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">  
+<title>Google Maps</title>  
+<!-- <link rel="stylesheet" href="css/style.css" type="text/css">   -->
+<!--Deploy Script For Google Maps API-->  
+ <script type="text/javascript"  
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCOA6ctYx6BaUEmT25pwJ-0UkIZcOO9rgo &sensor=true">  
+    </script> 
+<style>
+body{  
+    background-color:#b0e0e6;  
+}  
+   
+/*This class belongs to the main div tag just after body tag*/  
+.main{  
+    height:auto;  
+    width:auto;  
+    background:#0F0;  
+    border-top:solid;  
+    border-left:solid;  
+    border-right:solid;  
+    border-color:#000;  
+    border-bottom:solid;  
+}  
+   
+header{  
+    height:100px;  
+    width:auto;  
+    background-color:#FFF;  
+    border-bottom:solid;  
+    border-color:#000;  
+    background-image:url(../images/title.png);  
+}  
+   
+/*This ID belongs to the aside one seaction*/  
+#cnt1{  
+    height:500px;  
+    width:300px;  
+    background-color:#CCC;  
+    float:left;  
+    border-right:solid;  
+    border-bottom:solid;  
+}  
+   
+/*This id belongs to the aside two section*/  
+#cnt2{  
+    height:500px;  
+    width:auto;  
+    background-color:#CCC;  
+    border-bottom:solid;  
+}  
+   
+footer{  
+    height:45px;  
+}  
+   
+/*This id belongs to the div tag placed in header section*/  
+#search_cnt{  
+    height:auto;  
+    width:auto;  
+}  
+   
+/*This ID belongs to the table section inside the div tag under header*/  
+#tab{  
+    padding-top:30px;  
+}  
+   
+/*This class is uder to decorate text box*/  
+   
+.text_box{  
+    border:1px solid #999;  
+    width:200px;  
+    height:20px;  
+    color:#03F;  
+    font-family:"Comic Sans MS", cursive;  
+}  
+   
+.text_box:focus{  
+    border:1px solid blue;  
+}  
+   
+/*This section is used to decorate button*/  
+   
+.btn_box{  
+    border:1px solid #999;  
+    height:24px;  
+    font-family:"Comic Sans MS", cursive;  
+}  
+   
+.btn_box:hover{  
+    border:1px solid blue;  
+}  
+   
+/*To dacorate dropdown list*/  
+   
+.drop_list{  
+    border:1px solid blue;  
+    height:20px;  
+}  
+   
+.label_font{  
+    font-family:"Comic Sans MS", cursive;  
+    font-size:40px;  
+}  
+   
+.label_font:hover{  
+    color:white;  
+}  
+   
+/*Class to highlight title*/  
+   
+.title{  
+    font-family:"Comic Sans MS", cursive;  
+    font-size:18px;  
+    color:#06F;  
+}  
+   
+footer{  
+    background-color:#CCC;  
+    color:#03F;  
+    padding-bottom:5px;  
+}  
+</style
+
+
+
+
+
+	
+<!--API Deployment Script Ends Here-->  
+<!-- deploy this script AFTER the maps api-->  
+   
+    <!-- <script src="scripts/google-maps-3-vs-1-0.js" type="text/javascript"></script>   -->
+    <!--Deployments Ends-->  
+    <script type="text/javascript" src="MainJavaScript.js"></script>  
+    <script type="text/javascript">  
+        function myfunction(cc) {  
+   
+            var locations = cc;  
+            for (i = 0; i < locations.length; i++) {  
+                var map = new google.maps.Map(document.getElementById('map_canvas'), {  
+                    zoom: 14,  
+   
+                    center: new google.maps.LatLng(locations[i][1], locations[i][2]),  
+                    mapTypeId: google.maps.MapTypeId.ROADMAP  
+                });  
+            }  
+            var infowindow = new google.maps.InfoWindow();  
+   
+            var marker, i;  
+   
+            for (i = 0; i < locations.length; i++) {  
+                marker = new google.maps.Marker({  
+                    position: new google.maps.LatLng(locations[i][1], locations[i][2]),  
+                    map: map  
+                });  
+   
+                google.maps.event.addListener(marker, 'click', (function (marker, i) {  
+                    return function () {  
+                        infowindow.setContent(locations[i][0]);  
+                        infowindow.open(map, marker);  
+                    }  
+                })(marker, i));  
+            }  
+        }  
+          
+    </script>  
+<script src="Style_script.js" type="text/javascript"></script>  
+</head>  
+   
+<body onLoad="initialize()">  
+   <div class="main">  
+      <header>  
+         <div id="search_cnt">  
+   
+            <center>  
+               <table id="tab">  
+                  <tr>  
+                     <th><input type="text" class="text_box" value="Enter Place To Search" id="search" onBlur="onblur_js()" onFocus="onfocus_js();" /></th>  
+                     <th><input type="button" class="btn_box" onClick="initialize()"  value="Search"/></th>  
+                  </tr>  
+               </table>  
+            </center>  
+         </div>  
+      </header>  
+      <aside id="cnt1">  
+      <div>  
+         <center>  
+            <p><label title="Directions" class="label_font">Directions</label></p>  
+               <table style="margin-top:30px;">  
+               <tr>  
+                  <td><img src="images/start.png" height="25px" width="25px"/></td>  
+                     <td>  
+                        <input type="text" class="text_box" value="Choose start point" onBlur="st_blur_js()" onFocus="st_focus_js()" id="first_location"/>  
+                     </td>  
+                  </tr>  
+               <tr>  
+               <td><img src="images/dest.png" height="25px" width="25px" /></td>  
+            <td>  
+               <input type="text" class="text_box" value="Choose end Point" onBlur="en_blur_js()" onFocus="en_focus_js()" id="second_location"/>  
+            </td>  
+         </tr>  
+         <tr>  
+         <th colspan="2">  
+            <select id="dirtype" class="drop_list" style="font-family:'Comic Sans MS', cursive">  
+            <option value="1">Driving</option>  
+            <option value="2">Walking</option>  
+            <option value="3">Transit</option>  
+         </select>  
+      </th>  
+   </tr>  
+   <tr>  
+      <th colspan="2"><input type="button" class="btn_box" value="Find Direction" id="getDirection" onClick="calcRoute()"/></th>  
+   </tr>  
+   </table>  
+</center>  
+</div>  
+<div  style="overflow:auto; max-height:250px">  
+      <div id="directionsPanel"></div>  
+      </div>  
+</aside>  
+   
+<aside id="cnt2">  
+   <!--To print map-->  
+   <div id="map_canvas" style="height:100%;"></div>  
+   </aside>  
+      <footer>  
+   <br/>  
+      <center>  
+         © Designed By Paras Babbar. All Right Reserved: Google Custom Maps.  
+      </center>  
+      </footer>  
+   </div>  
+   
+</body>  
+</html>

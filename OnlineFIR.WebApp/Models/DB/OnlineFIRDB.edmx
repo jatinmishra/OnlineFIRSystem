@@ -1,0 +1,336 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="OnlineFIRDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="complaints_tbl">
+          <Key>
+            <PropertyRef Name="complaints_id" />
+          </Key>
+          <Property Name="complaints_id" Type="varchar" MaxLength="6" Nullable="false" />
+          <Property Name="fir_id" Type="varchar" MaxLength="6" Nullable="false" />
+          <Property Name="complaint_text" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="fir_tbl">
+          <Key>
+            <PropertyRef Name="fir_id" />
+          </Key>
+          <Property Name="fir_id" Type="varchar" MaxLength="6" Nullable="false" />
+          <Property Name="station_id" Type="varchar" MaxLength="6" Nullable="false" />
+          <Property Name="fir_complaintnee_name" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="fir_complaintnee_mob_no" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="fir_date" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="fir_subject" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="fir_file_path" Type="varchar" MaxLength="200" />
+          <Property Name="fir_status" Type="varchar" MaxLength="1" />
+          <Property Name="aadhar_num" Type="varchar" MaxLength="12" />
+          <Property Name="email" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="police_station_tbl">
+          <Key>
+            <PropertyRef Name="station_id" />
+          </Key>
+          <Property Name="station_id" Type="varchar" MaxLength="6" Nullable="false" />
+          <Property Name="user_id" Type="varchar" MaxLength="6" Nullable="false" />
+          <Property Name="station_name" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="station_address" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="station_incharge" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="station_contact_no" Type="varchar" MaxLength="33" Nullable="false" />
+        </EntityType>
+        <EntityType Name="updates_tbl">
+          <Key>
+            <PropertyRef Name="update_id" />
+          </Key>
+          <Property Name="update_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fir_id" Type="varchar" MaxLength="6" Nullable="false" />
+          <Property Name="last_update" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="comments" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="user_tbl">
+          <Key>
+            <PropertyRef Name="user_id" />
+          </Key>
+          <Property Name="user_id" Type="varchar" MaxLength="6" Nullable="false" />
+          <Property Name="user_password" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="user_role" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="user_email" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <Function Name="getFIRDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="spId" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="getFIRDetailsFromStatus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="spStatus" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="getSingleFIR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="param1" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="getStationDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="spId" Type="varchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="OnlineFIRDBModelStoreContainer">
+          <EntitySet Name="complaints_tbl" EntityType="Self.complaints_tbl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="fir_tbl" EntityType="Self.fir_tbl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="police_station_tbl" EntityType="Self.police_station_tbl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="updates_tbl" EntityType="Self.updates_tbl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="user_tbl" EntityType="Self.user_tbl" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="OnlineFIRDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="complaints_tbl">
+          <Key>
+            <PropertyRef Name="complaints_id" />
+          </Key>
+          <Property Name="complaints_id" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fir_id" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="complaint_text" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="fir_tbl">
+          <Key>
+            <PropertyRef Name="fir_id" />
+          </Key>
+          <Property Name="fir_id" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="station_id" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fir_complaintnee_name" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fir_complaintnee_mob_no" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fir_date" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fir_subject" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fir_file_path" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="fir_status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="aadhar_num" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="police_station_tbl">
+          <Key>
+            <PropertyRef Name="station_id" />
+          </Key>
+          <Property Name="station_id" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="user_id" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="station_name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="station_address" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="station_incharge" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="station_contact_no" Type="String" MaxLength="33" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="updates_tbl">
+          <Key>
+            <PropertyRef Name="update_id" />
+          </Key>
+          <Property Name="update_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fir_id" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="last_update" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="comments" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="user_tbl">
+          <Key>
+            <PropertyRef Name="user_id" />
+          </Key>
+          <Property Name="user_id" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="user_password" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="user_role" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="user_email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="OnlineFIRDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="complaints_tbl" EntityType="Self.complaints_tbl" />
+          <EntitySet Name="fir_tbl" EntityType="Self.fir_tbl" />
+          <EntitySet Name="police_station_tbl" EntityType="Self.police_station_tbl" />
+          <EntitySet Name="updates_tbl" EntityType="Self.updates_tbl" />
+          <EntitySet Name="user_tbl" EntityType="Self.user_tbl" />
+          <FunctionImport Name="getFIRDetails" ReturnType="Collection(OnlineFIRDBModel.getFIRDetails_Result)">
+          <Parameter Name="spId" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="getFIRDetailsFromStatus" ReturnType="Collection(OnlineFIRDBModel.getFIRDetails_Result)">
+          <Parameter Name="spStatus" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="getSingleFIR" ReturnType="Collection(OnlineFIRDBModel.getSingleFIR_Result)">
+          <Parameter Name="param1" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="getStationDetails" ReturnType="Collection(OnlineFIRDBModel.getStationDetails_Result)">
+            <Parameter Name="spId" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="getFIRDetails_Result">
+          <Property Type="String" Name="fir_id" Nullable="false" MaxLength="6" />
+          <Property Type="String" Name="station_id" Nullable="false" MaxLength="6" />
+          <Property Type="String" Name="fir_complaintnee_name" Nullable="false" MaxLength="25" />
+          <Property Type="String" Name="fir_complaintnee_mob_no" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="fir_date" Nullable="false" MaxLength="25" />
+          <Property Type="String" Name="fir_subject" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="fir_file_path" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="fir_status" Nullable="true" MaxLength="1" />
+        </ComplexType>
+        <ComplexType Name="getFIRDetailsFromStatus_Result">
+          <Property Type="String" Name="fir_id" Nullable="false" MaxLength="6" />
+          <Property Type="String" Name="station_id" Nullable="false" MaxLength="6" />
+          <Property Type="String" Name="fir_complaintnee_name" Nullable="false" MaxLength="25" />
+          <Property Type="String" Name="fir_complaintnee_mob_no" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="fir_date" Nullable="false" MaxLength="25" />
+          <Property Type="String" Name="fir_subject" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="fir_file_path" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="fir_status" Nullable="true" MaxLength="1" />
+        </ComplexType>
+        <ComplexType Name="getSingleFIR_Result">
+          <Property Type="String" Name="fir_id" Nullable="false" MaxLength="6" />
+          <Property Type="String" Name="station_id" Nullable="false" MaxLength="6" />
+          <Property Type="String" Name="fir_complaintnee_name" Nullable="false" MaxLength="25" />
+          <Property Type="String" Name="fir_complaintnee_mob_no" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="fir_date" Nullable="false" MaxLength="25" />
+          <Property Type="String" Name="fir_subject" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="fir_file_path" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="fir_status" Nullable="true" MaxLength="1" />
+          <Property Type="String" Name="aadhar_num" Nullable="true" MaxLength="12" />
+          <Property Type="String" Name="email" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="getStationDetails_Result">
+          <Property Type="String" Name="station_id" Nullable="false" MaxLength="6" />
+          <Property Type="String" Name="user_id" Nullable="false" MaxLength="6" />
+          <Property Type="String" Name="station_name" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="station_address" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="station_incharge" Nullable="false" MaxLength="25" />
+          <Property Type="String" Name="station_contact_no" Nullable="false" MaxLength="33" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="OnlineFIRDBModelStoreContainer" CdmEntityContainer="OnlineFIRDBEntities">
+          <EntitySetMapping Name="complaints_tbl">
+            <EntityTypeMapping TypeName="OnlineFIRDBModel.complaints_tbl">
+              <MappingFragment StoreEntitySet="complaints_tbl">
+                <ScalarProperty Name="complaints_id" ColumnName="complaints_id" />
+                <ScalarProperty Name="fir_id" ColumnName="fir_id" />
+                <ScalarProperty Name="complaint_text" ColumnName="complaint_text" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="fir_tbl">
+            <EntityTypeMapping TypeName="OnlineFIRDBModel.fir_tbl">
+              <MappingFragment StoreEntitySet="fir_tbl">
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="aadhar_num" ColumnName="aadhar_num" />
+                <ScalarProperty Name="fir_id" ColumnName="fir_id" />
+                <ScalarProperty Name="station_id" ColumnName="station_id" />
+                <ScalarProperty Name="fir_complaintnee_name" ColumnName="fir_complaintnee_name" />
+                <ScalarProperty Name="fir_complaintnee_mob_no" ColumnName="fir_complaintnee_mob_no" />
+                <ScalarProperty Name="fir_date" ColumnName="fir_date" />
+                <ScalarProperty Name="fir_subject" ColumnName="fir_subject" />
+                <ScalarProperty Name="fir_file_path" ColumnName="fir_file_path" />
+                <ScalarProperty Name="fir_status" ColumnName="fir_status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="police_station_tbl">
+            <EntityTypeMapping TypeName="OnlineFIRDBModel.police_station_tbl">
+              <MappingFragment StoreEntitySet="police_station_tbl">
+                <ScalarProperty Name="station_id" ColumnName="station_id" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="station_name" ColumnName="station_name" />
+                <ScalarProperty Name="station_address" ColumnName="station_address" />
+                <ScalarProperty Name="station_incharge" ColumnName="station_incharge" />
+                <ScalarProperty Name="station_contact_no" ColumnName="station_contact_no" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="updates_tbl">
+            <EntityTypeMapping TypeName="OnlineFIRDBModel.updates_tbl">
+              <MappingFragment StoreEntitySet="updates_tbl">
+                <ScalarProperty Name="update_id" ColumnName="update_id" />
+                <ScalarProperty Name="fir_id" ColumnName="fir_id" />
+                <ScalarProperty Name="last_update" ColumnName="last_update" />
+                <ScalarProperty Name="comments" ColumnName="comments" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="user_tbl">
+            <EntityTypeMapping TypeName="OnlineFIRDBModel.user_tbl">
+              <MappingFragment StoreEntitySet="user_tbl">
+                <ScalarProperty Name="user_email" ColumnName="user_email" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="user_password" ColumnName="user_password" />
+                <ScalarProperty Name="user_role" ColumnName="user_role" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="getFIRDetails" FunctionName="OnlineFIRDBModel.Store.getFIRDetails">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="OnlineFIRDBModel.getFIRDetails_Result">
+                <ScalarProperty Name="fir_id" ColumnName="fir_id" />
+                <ScalarProperty Name="station_id" ColumnName="station_id" />
+                <ScalarProperty Name="fir_complaintnee_name" ColumnName="fir_complaintnee_name" />
+                <ScalarProperty Name="fir_complaintnee_mob_no" ColumnName="fir_complaintnee_mob_no" />
+                <ScalarProperty Name="fir_date" ColumnName="fir_date" />
+                <ScalarProperty Name="fir_subject" ColumnName="fir_subject" />
+                <ScalarProperty Name="fir_file_path" ColumnName="fir_file_path" />
+                <ScalarProperty Name="fir_status" ColumnName="fir_status" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="getFIRDetailsFromStatus" FunctionName="OnlineFIRDBModel.Store.getFIRDetailsFromStatus">
+          <ResultMapping>
+              <ComplexTypeMapping TypeName="OnlineFIRDBModel.getFIRDetails_Result">
+                <ScalarProperty Name="fir_id" ColumnName="fir_id" />
+                <ScalarProperty Name="station_id" ColumnName="station_id" />
+                <ScalarProperty Name="fir_complaintnee_name" ColumnName="fir_complaintnee_name" />
+                <ScalarProperty Name="fir_complaintnee_mob_no" ColumnName="fir_complaintnee_mob_no" />
+                <ScalarProperty Name="fir_date" ColumnName="fir_date" />
+                <ScalarProperty Name="fir_subject" ColumnName="fir_subject" />
+                <ScalarProperty Name="fir_file_path" ColumnName="fir_file_path" />
+                <ScalarProperty Name="fir_status" ColumnName="fir_status" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="getSingleFIR" FunctionName="OnlineFIRDBModel.Store.getSingleFIR">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="OnlineFIRDBModel.getSingleFIR_Result">
+                <ScalarProperty Name="fir_id" ColumnName="fir_id" />
+                <ScalarProperty Name="station_id" ColumnName="station_id" />
+                <ScalarProperty Name="fir_complaintnee_name" ColumnName="fir_complaintnee_name" />
+                <ScalarProperty Name="fir_complaintnee_mob_no" ColumnName="fir_complaintnee_mob_no" />
+                <ScalarProperty Name="fir_date" ColumnName="fir_date" />
+                <ScalarProperty Name="fir_subject" ColumnName="fir_subject" />
+                <ScalarProperty Name="fir_file_path" ColumnName="fir_file_path" />
+                <ScalarProperty Name="fir_status" ColumnName="fir_status" />
+                <ScalarProperty Name="aadhar_num" ColumnName="aadhar_num" />
+                <ScalarProperty Name="email" ColumnName="email" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="getStationDetails" FunctionName="OnlineFIRDBModel.Store.getStationDetails">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="OnlineFIRDBModel.getStationDetails_Result">
+                <ScalarProperty Name="station_id" ColumnName="station_id" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="station_name" ColumnName="station_name" />
+                <ScalarProperty Name="station_address" ColumnName="station_address" />
+                <ScalarProperty Name="station_incharge" ColumnName="station_incharge" />
+                <ScalarProperty Name="station_contact_no" ColumnName="station_contact_no" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

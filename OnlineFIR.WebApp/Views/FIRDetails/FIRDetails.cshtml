@@ -1,0 +1,182 @@
+﻿@model OnlineFIR.WebApp.Models.DB.getSingleFIR_Result
+
+@{
+    ViewBag.Title = "FIRDetails";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+
+
+@*@using (Html.BeginForm("FIRDetails","FIRDetails"))
+    {
+        @Html.AntiForgeryToken()
+
+       <div class="form-horizontal">
+
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.fir_id)
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.station_id, htmlAttributes: new { @class = "control-label col-md-4"  })
+                <div class="col-md-8">
+                    @Html.EditorFor(model => model.station_id, new { htmlAttributes = new { @class = "form-control", @readonly = true  } })
+                    @Html.ValidationMessageFor(model => model.station_id, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.fir_complaintnee_name, htmlAttributes: new { @class = "control-label col-md-4" })
+                <div class="col-md-8">
+                    @Html.EditorFor(model => model.fir_complaintnee_name, new { htmlAttributes = new { @class = "form-control", @readonly = true } })
+                    @Html.ValidationMessageFor(model => model.fir_complaintnee_name, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.fir_complaintnee_mob_no, htmlAttributes: new { @class = "control-label col-md-4" })
+                <div class="col-md-8">
+                    @Html.EditorFor(model => model.fir_complaintnee_mob_no, new { htmlAttributes = new { @class = "form-control", @readonly = true } })
+                    @Html.ValidationMessageFor(model => model.fir_complaintnee_mob_no, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.fir_date, htmlAttributes: new { @class = "control-label col-md-4" })
+                <div class="col-md-8">
+                    @Html.EditorFor(model => model.fir_date, new { htmlAttributes = new { @class = "form-control", @readonly = true } })
+                    @Html.ValidationMessageFor(model => model.fir_date, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.fir_subject, htmlAttributes: new { @class = "control-label col-md-4" })
+                <div class="col-md-8">
+                    @Html.EditorFor(model => model.fir_subject, new { htmlAttributes = new { @class = "form-control", @readonly = true } })
+                    @Html.ValidationMessageFor(model => model.fir_subject, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.fir_file_path, htmlAttributes: new { @class = "control-label col-md-4" })
+                <div class="col-md-8">
+                    @Html.EditorFor(model => model.fir_file_path, new { htmlAttributes = new { @class = "form-control", @readonly = true } })
+                    @Html.ValidationMessageFor(model => model.fir_file_path, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.fir_status, htmlAttributes: new { @class = "control-label col-md-4" })
+                <div class="col-md-8">
+                    @Html.EditorFor(model => model.fir_status, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.fir_status, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <br/>
+
+
+            <div class="form-group">
+                <div class="col-md-offset-6 col-md-7">
+                    <input type="submit" value="Save" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+
+    @*<h1>Product</h1>
+    <h3>ID: @Model.fir_date</h3>
+    <h3>Name: @Model.fir_complaintnee_name </h3>
+    <h3>Description: @Model.fir_complaintnee_mob_no</h3>
+    <h3>Price: @Model.fir_file_path</h3>*@
+
+<div class="location-bar hidden-xs row">
+    <div class="col-sm-6"><p>FIR Details</p></div>
+    @*<div class="col-sm-6 location-bar-right">
+            <a href="../index.html"><i class="fa fa-home"></i> / </a>
+            <span>Account</span> / <span>Invoice</span>
+            <a href="#"><i class="fa fa-chevron-left"></i></a>
+        </div>*@
+</div>
+
+
+<div class="invoice page-wrap" id="firDetails">
+    <div class="row invoice-header">
+        <div class="col-sm-5">
+            <h1>FIR Details</h1>
+            <h3 class="invoice-number"> FIR ID ->#@Model.fir_id</h3>
+            @if (Model.fir_status.Equals("0"))
+            {
+                @*<td style="color:yellow">Pending</td>*@
+                <span class="label label-warning">Pending</span>
+            }
+            @if (Model.fir_status.Equals("1"))
+            {
+                @*<td style="color:green">
+            Done
+            </td>*@
+                <span class="label label-success">Done</span>
+            }
+        </div>
+        <div class="col-sm-4 company-address">
+            
+            <p style="font-size:15px; font-weight:bold">Name of complaintnee : @Model.fir_complaintnee_name</p>
+            <p style="font-size:15px; font-weight:bold">Contact Number of complaintnee : @Model.fir_complaintnee_mob_no</p>
+            <p style="font-size:15px; font-weight:bold">AADHAR Number of complaintnee : @Model.aadhar_num</p>
+            
+
+        </div>
+        <div class="col-sm-3">
+            <h2 class="company-name">Online FIR System</h2>
+        </div>
+    </div>
+
+    <div class="row invoice-under-header">
+        <div class="col-sm-6 invoice-address">
+            <h4 style="font-size:24px;">Subject:</h4>
+           
+            <p>@Model.fir_subject</p>
+        </div>
+
+        <div class="col-sm-6">
+            <p><span>FIR Date:</span> @Model.fir_date.ToString().Substring(0, 10)</p>
+            <p><span>FIR Time:</span> @Model.fir_date.ToString().Substring(10)</p>
+        </div>
+    </div>
+
+  
+    <div ><iframe id="firMatter" src="@Model.fir_file_path.ToString().Substring(63)" width=800 height=400 frameborder=0></iframe></div>
+    @using (Html.BeginForm("Export", "FIRDetails", FormMethod.Post))
+    {
+
+        <div class="invoice-buttons">
+
+            
+            <input type="hidden" name="div" >
+            <button type="submit" id="exPDF" value="Export"><i class="fa fa-print"></i> Print </button>
+        </div>
+    }
+
+    @using (Html.BeginForm("updateStatus", "FIRDetails"))
+    {
+        <label for="sel1"> Update Status-----></label>
+        <br />
+
+        <select class="form-control" name="status">
+
+            <option disabled selected>Status</option>
+            <option>Pending</option>
+            <option>Done</option>
+
+        </select>
+        <br />
+        <button type="submit" onclick="ShowProgress()" class="btn btn-primary">Update Status</button>
+    }
+
+</div>
+<script type="text/javascript">
+    $(function () {
+        $("#exPDF").click(function () {
+            $("input[name='div']").val($("#firMatter").html());
+        });
+    });
+</script>

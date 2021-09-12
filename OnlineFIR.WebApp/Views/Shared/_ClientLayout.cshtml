@@ -1,0 +1,208 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Home</title>
+    <meta charset="utf-8">
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="icon" href="~/Content/Client/Images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="~/Content/Client/StyleSheets/grid.css">
+    <link href="~/Content/Client/StyleSheets/css.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Content/Client/StyleSheets/style.css">
+    <link rel="stylesheet" href="~/Content/Client/StyleSheets/camera.css">
+    <link rel="stylesheet" href="~/Content/Client/StyleSheets/animate.css">
+    <link rel="stylesheet" href="~/Content/Client/StyleSheets/owl-carousel.css">
+    <link rel="stylesheet" href="~/Content/Client/StyleSheets/google-map.css">
+    <link rel="stylesheet" href="~/Content/Client/StyleSheets/contact-form.css">
+    <link rel="stylesheet" href="~/Content/Client/StyleSheets/jquery.fancybox.css">
+    <script src="~/Content/Client/Scripts/jquery.js"></script>
+    <script src="~/Content/Client/Scripts/jquery-migrate-1.2.1.js"></script>
+    <script src="~/Content/Client/Scripts/raphael.js"></script>
+    <!--[if lt IE 9]>
+    <html class="lt-ie9">
+    <div style=' clear: both; text-align:center; position: relative;'>
+      <a href="http://windows.microsoft.com/en-US/internet-explorer/..">
+        <img src="~/Content/Client/Images/ie8-panel/warning_bar_0000_us.jpg" border="0" height="42" width="820"
+             alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."/>
+      </a>
+    </div>
+    <script src="~/Content/Client/Scripts/html5shiv.js"></script>
+    <![endif]-->
+    <script src='~/Content/Client/Scripts/device.min.js'></script>
+</head>
+<body>
+    <!--========================================================
+                              HEADER
+    =========================================================-->
+    <div class="cusContain" style="height:100%;">
+        <header>
+            <div id="stuck_container" class="stuck_container">
+                <div class="container">
+                    <div class="brand">
+                        <h1 class="brand_name">
+                            <a href="./">Police</a>
+                        </h1>
+                        <p class="brand_slogan">
+                            Department
+                        </p>
+                    </div>
+                    <nav class="nav">
+                        <ul class="sf-menu">
+                            <li class="active">
+                                <a href="~/">Home</a>
+                            </li>
+                            <li>
+                                <a href="~/FIR/RegisterFIR">File A FIR</a>
+
+                            </li>
+                            <li>
+                                <a href="~/FIRStatus/FIRStatus">Check Status</a>
+                            </li>
+                            <li>
+                                <a href="~/FAQS/FAQS">FAQ'S</a>
+                            </li>
+                            <li>
+                                <a href="~/Login/Login">Login</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <div class="camera_container" id="camera-caraousel">
+                <div id="camera" class="camera_wrap">
+                    <div data-src="/Content/Client/Images/page-1_slide02.jpg">
+                        <div class="camera_caption fadeIn">
+                            <div class="container">
+                                <div class="title_wrap">
+                                    <div class="title_content">
+                                        <h2>
+                                            FOR LIFE <em>WITHOUT</em> CRIME
+                                        </h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div data-src="/Content/Client/Images/page-1_slide01.jpg">
+                        <div class="camera_caption fadeIn">
+                            <div class="container">
+                                <div class="title_wrap">
+                                    <div class="title_content">
+                                        <h2>
+                                            <em>KEEPING</em> PUBLIC ORDER
+                                        </h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div data-src="/Content/Client/Images/page-1_slide02.jpg">
+                        <div class="camera_caption fadeIn">
+                            <div class="container">
+                                <div class="content">
+                                    <div class="title_wrap">
+                                        <div class="title_content">
+                                            <h2>
+                                                Preserving the <em>Peace</em> of Every Citizen!
+                                            </h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+
+        @RenderBody()
+
+    </div>
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="grid_6 preffix_3">
+                    @*<form id="contact-form" class='contact-form' hidden>
+                        <h2>Contact Us</h2>
+                        <div class="contact-form-loader"></div>
+                        <fieldset>
+                            <label class="name">
+                                <input type="text" name="name" placeholder="Name" value="" />
+                                <span class="empty-message">*This field is required.</span>
+                                <span class="error-message">*This is not a valid name.</span>
+                            </label>
+
+                            <label class="email">
+                                <input type="text" name="email" placeholder="E-mail" value="" />
+
+                                <span class="empty-message">*This field is required.</span>
+                                <span class="error-message">*This is not a valid email.</span>
+                            </label>
+
+                            <label class="phone">
+                                <input type="text" name="phone" placeholder="Phone" value="" />
+
+                                <span class="empty-message">*This field is required.</span>
+                                <span class="error-message">*This is not a valid phone.</span>
+                            </label>
+
+                            <label class="message">
+                                <textarea name="message" placeholder="Message"></textarea>
+
+                                <span class="empty-message">*This field is required.</span>
+                                <span class="error-message">*The message is too short.</span>
+                            </label>
+
+                            <div class="btn-wr">
+                                <a class="send-btn" href="#" data-type="submit">Send</a>
+                            </div>
+                        </fieldset>
+                        <div class="modal fade response-message">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                            &times;
+                                        </button>
+                                        <h4 class="modal-title">Modal title</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        You message has been sent! We will be in touch soon.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>*@
+                </div>
+            </div>
+            <div class="copyright">
+                <p>
+                    Police Head Quarters is located at 1, Sarojni Naidu Marg, Allahabad
+                    Fax : 0532-2423659, 2423661. Ph : 0532-2423660
+                    E-mail : polhead@up.nic.in, polald@gmail.com
+                </p>
+                Copyright © <span id="copyright-year"></span> |
+                <a href="index-5.html">Privacy Policy</a>
+            </div>
+            <!-- {%FOOTER_LINK} -->
+        </div>
+    </footer>
+  
+    
+    <script src="~/Content/Client/Scripts/script.js"></script>
+
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-7078796-5']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+
+    </script>
+</body>
+</html>

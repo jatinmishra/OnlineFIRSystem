@@ -1,0 +1,12 @@
+﻿
+@{
+    ViewBag.Title = "RegistrationSuccess";
+    Layout = "~/Views/Shared/_EmptyAdminLayout.cshtml";
+}
+
+<div class="jumbotron text-center">
+    <h1>FIR Registration Status</h1>
+    <p>Hello , @TempData["fir_complaintnee_name_tmp"] your FIR has been registered successfully.</p>
+    <p>You can check the status of your FIR by using this FIR ID @TempData["fir_id_tmp"] .</p>
+    <p>Your FIR will come in process as soon as possible, Thank You</p>
+</div>

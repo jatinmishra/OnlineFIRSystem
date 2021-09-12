@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewBag.Title = "LogOutConfirmation";
+    Layout = "~/Views/Shared/_EmptyAdminLayout.cshtml";
+}
+
+<style>
+    form
+    {
+        float:right;
+    }
+</style>
+
+<div class="container">
+    <div class="sign-box">
+        <h3 style="font-size:30px;">Do you really want to logout?</h3>
+        <h4>All your session data will be cleared. Click "Cancel" to go back.</h4>
+        <br />
+        <div class="form-group">
+            <div class="col-md-12">
+                <div class="text-right ">
+                    <input type="submit" onclick="window.history.back();" style="color:red;" value="Cancel" />
+                    @using (Html.BeginForm())
+                    {
+                        <input type="submit" style="color:green;" value="Log Out" />
+                    }
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="sign-box" style="visibility:@ViewBag.v">
+        <h3 style="font-size:30px;">You have successfully logged out.</h3>
+        @*<h4>All your session data will be cleared. Click "Cancel" to go back.</h4>*@
+        <br />
+        <p><a href="~/ClientHome/ClientHome">Click here</a> to go back to home page OR <a href="~/Login/Login">Click here</a> to log in again.</p>
+    </div>
+</div>
+@*function goBack() {
+        window.history.back();
+    }*@

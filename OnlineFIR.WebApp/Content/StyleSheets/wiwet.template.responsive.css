@@ -1,0 +1,368 @@
+/*
+
+WIWET.com - ASP.NET Templates
+
+Wildomar Template
+
+*/
+
+@media only screen and (max-width: 1441px){
+	.sidebar-nav > .sidebar-brand{
+		display: none;
+	}
+	#wrapper.toggled {
+        padding-left: 0 !important;
+    }
+	#sidebar-wrapper{
+		margin-top: 88px;
+	}
+	.invoice .invoice-header h2.company-name {
+    	font-size: 38px;
+	}
+	.list-item > div:last-child a {
+    	margin: 0px 5px;
+	}
+	.under-search > div:first-child > div {
+    	padding-right: 10px;	
+    	padding-left: 10px;
+    	padding-top: 10px;
+	}
+	.under-search > div:first-child .dropdown .btn{
+		padding-left: 0px;
+		padding-right: 0px;
+	}
+	.user-stats .row .row i {
+    	font-size: 30px;
+    	width: 55px;
+    	height: 55px;
+    	line-height: 55px;
+	}
+	.user-stats .row .row p {
+    	font-size: 14px;
+    }
+	.user-stats .row .row > div:last-child{
+		padding-right: 0px;
+	}
+	.wiwet-dash1 > div:first-child{
+		margin-bottom: 20px;
+	}
+	.wiwet-dash1 > div{
+		width: 100%;
+	}
+	.wiwet-dash2 .engagement h5{
+		margin-top: 10px;
+	}
+	.wiwet-dash2 .engagement p{
+		margin-top: 10px;
+	}
+	.wiwet-dash2 .engagement > div > .row:last-child > div{
+		padding-left: 5px;
+		padding-right: 5px;
+	}
+	.wiwet-dash3 > div{
+		width: 100%;
+	}
+	.wiwet-dash4 > div,
+	.wiwet-dash5 > div{
+		width: 50%;
+	}
+	.wiwet-dashboard .wiwet-forecast .wiwet-temperature .day-temp div:last-child{
+		padding: 0px;
+	}
+	.wiwet-dashboard .wiwet-forecast .wiwet-temperature h4 span{
+    	display: inline-block;
+    	width: 29%;
+    	font-size: 12px;
+	}
+	.graph-page > .row > div > div{
+		min-height: 0px;
+		padding: 10px;
+	}
+	.graph-page .donut-inner {
+    	top: -32px;
+	}
+	#sidebar-wrapper {
+		position: absolute;
+	}
+}
+@media only screen and (max-width: 1025px){
+	.wiwet-dashboard .wiwet-forecast .wiwet-temperature h3{
+		font-size: 32px;
+	}
+	.wiwet-dashboard .wiwet-forecast .wiwet-temperature h3 span {
+    	font-size: 25px;
+    }
+    .wiwet-dashboard .wiwet-forecast .wiwet-date a, .wiwet-dashboard .wiwet-forecast .wiwet-temperature a{
+    	margin-right: 0px;
+    	padding-right: 5px;
+    }
+    .wiwet-dashboard .wiwet-forecast .wiwet-temperature h4{
+    	height: auto;
+    	line-height: 32px;
+    	padding: 15px 0px;
+    }
+    .wiwet-dashboard .wiwet-forecast .wiwet-temperature h4 span{
+    	width: 100%;
+    	font-size: 16px;
+    }
+    .list-item a.move-icon{
+    	margin-right: 6px;
+    }
+}
+@media only screen and (max-width: 992px){
+	.wiwet-dashboard .wiwet-forecast{
+		padding-left: 15px;
+		padding-right: 15px;
+		margin-left: 60px;
+		margin-right: 60px;
+		margin-bottom: 30px;
+		border: 1px solid #d1d1d1;
+	}
+	.wiwet-dashboard .wiwet-forecast .wiwet-temperature h4 span{
+    	width: 32%;
+    }
+    .list-item a.move-icon{
+    	margin-right: 15px;
+    }
+    .user-stats > .row >div:nth-child(1),
+    .user-stats > .row >div:nth-child(2){
+    	margin-bottom: 20px;
+    }
+    .invoice .invoice-header h2.company-name {
+    	font-size: 30px;
+	}
+}
+@media only screen and (max-width: 767px){
+	.wiwet-wildomar{
+	    text-align: center;
+    	color: #FFF;
+    	background: #2078dc;
+    	font-size: 47px;
+    	font-weight: bold;
+    	line-height: 95px;
+    	margin: 0px;
+	}
+    .sign-box{
+    	width: 100%;
+    	position: static;
+    	margin: 0px;
+    	padding: 0px 15px 35px;
+    	box-shadow: none;
+    }
+    .sign-box h3,.register-forgot{
+    	margin-left: -15px;
+    	margin-right: -15px;
+    	margin-bottom: 20px;
+    }
+	.top-bar-mobile{
+		background: #262b33;
+		line-height: 38px;
+		height: 38px;
+	}
+	.top-bar-mobile .row{
+		margin: 0px;
+	}
+	.top-bar-mobile a{
+		color: #FFF;
+	}
+	.top-bar-mobile p{
+		margin: 0px;
+		font-size: 15px;
+		color: #FFF;
+		text-align: right;
+	}
+	#wrapper.toggled {
+        padding-left: 0 !important;
+    }
+	#sidebar-wrapper{
+		margin-top: 132px;
+	}
+	.sidebar-nav li{
+		line-height: 40px;
+	}
+	.user-header{
+		height: auto;
+		line-height: normal;
+		padding-top: 20px;
+	}
+	.user-header img{
+		display: block;
+		margin-left: 20px;
+	}
+	.user-header > a{
+		margin-top: 17px;
+		margin-bottom: 92px;
+	}
+	.user-header > a:nth-child(2){
+		margin-left: 20px;
+	}
+	.user-header .user-numbers{
+		padding-top: 15px;
+		padding-bottom: 15px;
+		height: auto;
+		line-height: normal;
+		padding-left: 20px;
+	}
+	.user-header .user-numbers a:nth-child(1),
+	.user-header .user-numbers a:nth-child(2){
+		margin-bottom: 10px;
+		display: inline-block;
+	}
+	.user-stats {
+    	padding: 5px 20px 30px;
+	}
+	.user-stats .row .row{
+		box-shadow: none;
+		margin-bottom: 5px;
+	}
+	.user-stats > .row{
+		margin-left: 0px;
+		margin-right: 0px;
+	}
+	.user-stats > .row > div{
+		padding: 0px;
+		margin-left: -20px;
+		margin-right: -20px;
+	}
+	.user-stats .table-responsive{
+		padding: 10px 0px 10px;
+		margin-top: 20px;
+		box-shadow: none;
+	}
+	.invoice{
+		box-shadow: none;
+		margin: 0px;
+		padding: 20px 15px 40px;
+	}
+	.invoice .invoice-header h1,
+	.invoice .invoice-header h3.invoice-number,
+	.invoice .invoice-header .company-address p,
+	.invoice .invoice-header h2.company-name{
+		text-align: center;
+	}
+	.invoice .invoice-header h3.invoice-number{
+		padding-bottom: 25px;
+	}
+	.noBorder{
+		border: none;
+	}
+	.todo{
+		padding-right: 15px;
+	}
+	.list-item a.move-icon{
+		margin-left: 15px;
+		margin-right: 10px;
+	}
+	.list-item:last-child{
+		border: none;
+	}
+	.under-search > div:last-child{
+		padding-bottom: 10px;
+	}
+	.search-box{
+		margin-top: 0px;
+	}
+	.search-box i{
+		margin-left: 30px;
+	}
+	.search-box input{
+		width: 75%;
+	}
+	.wiwet-dashboard{
+		padding-top: 0px;
+		margin-left: -15px;
+		margin-right: -15px;
+	}
+	.wiwet-dashboard > div{
+		padding-left: 0px;
+		padding-right: 0px;
+	}
+	.wiwet-dash1 > div:first-child .above-graph p{
+		font-size: 13px;
+		padding-bottom: 10px;
+	}
+	.wiwet-dashboard > div:first-child{
+		margin-bottom: 15px;
+	}
+	.wiwet-dash1 > div:last-child > .row > div > div{
+		margin-top: 7px;
+		margin-bottom: 0px;
+	}
+	.wiwet-dash3 > div > div,
+	.wiwet-dash1 > div:last-child > .row > div > div:last-child{
+		margin-bottom: 7px;
+	}
+	.wiwet-dash2 > div > div,
+	.wiwet-dash4 > div > div,
+	.wiwet-dash5 > div > div{
+		margin-bottom: 7px;
+	}
+	.engagement canvas{
+		margin-bottom: 70px;
+	}
+	.donut-inner {
+    	top: -92px;
+	}
+	.wiwet-dash4,
+	.wiwet-dash5{
+		margin: 0px;
+	}
+	.wiwet-dashboard .wiwet-forecast{
+		padding-left: 15px;
+		padding-right: 15px;
+		margin-left: 60px;
+		margin-right: 60px;
+		margin-bottom: 30px;
+		border: 1px solid #d1d1d1;
+	}
+	footer{
+		line-height: 24px;
+		padding-top: 10px;
+		padding-bottom: 10px;
+		height: auto;
+	}
+	.wiwet-dash2 > div > div{
+		height: auto !important;
+	}
+	.engagement .donut-inner{
+		margin-bottom: 0px;
+	}
+	.wiwet-dash4 > div, .wiwet-dash5 > div {
+    	width: 100%;
+	}
+	.sidebar-nav{
+	overflow: scroll;
+	height: 100%;
+	height: auto;
+	-ms-overflow-style: none;
+	overflow: -moz-scrollbars-none;
+}
+	.sidebar-nav::-webkit-scrollbar { width: 0 !important }
+}
+@media(min-width:1441px) {
+    #wrapper {
+        padding-left: 280px;
+    }
+
+    #wrapper.toggled {
+        padding-left: 0;
+    }
+
+    #sidebar-wrapper {
+        width: 280px;
+    }
+
+    #wrapper.toggled #sidebar-wrapper {
+        width: 0;
+    }
+
+    #page-content-wrapper {
+        position: relative;
+    }
+
+    #wrapper.toggled #page-content-wrapper {
+        position: relative;
+        margin-right: 0;
+    }
+
+}

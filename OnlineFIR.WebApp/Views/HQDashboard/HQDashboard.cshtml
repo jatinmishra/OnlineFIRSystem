@@ -1,0 +1,121 @@
+﻿@{
+    ViewBag.Title = "HQDashboard";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+
+<div class="location-bar hidden-xs row">
+    <div class="col-sm-6"><p>Dashboard</p></div>
+    <div class="col-sm-6 location-bar-right">
+        <a href="index.html"><i class="fa fa-home"></i> / </a>
+        <span>Dashboard</span>
+        <a href="#"><i class="fa fa-chevron-left"></i></a>
+    </div>
+</div>
+
+
+<div class="container">
+    <h1>Welcome to the HQ Dashboard</h1>
+    <h3>You can start by searching for a FIR below.</h3>
+    <br />
+
+    <div class="panel-group" id="accordion">
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+                        Search FIR using FIR ID
+                    </a>
+                </h4>
+            </div>
+            <div id="collapse1" class="panel-collapse collapse in">
+                <div class="panel-body">
+                    @using (Html.BeginForm("showFIRListByID", "HQDashboard"))
+                    {
+                        <div class="form-group">
+                            <label for="firID">FIR ID</label>
+                            <input type="text" class="form-control" id="firID" placeholder="Please Enter FIR ID" name="firID">
+                        </div>
+
+                        <button type="submit" onclick="ShowProgress()" class="btn btn-primary">Submit</button>
+                    }
+                </div>
+                <div class="saveError" align="center" style="visibility:@ViewBag.VisibilityI;">
+                    <img src="~/Content/Images/error.png" style="max-height:40px; max-width:40px; background:white;" />
+                    FIR ID invalid , please try again.
+                </div>
+            </div>
+
+
+        </div>
+
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+                        Search FIR using Police Station ID
+                    </a>
+                </h4>
+            </div>
+            <div id="collapse2" class="panel-collapse collapse">
+                <div class="panel-body">
+                    @using (Html.BeginForm("showFIRListByStationId", "HQDashboard"))
+                    {
+                        <label for="sel1">Select Police Station ID</label>
+                        <select class="form-control" name="selStation">
+                            <option disabled selected>Station ID</option>
+                            @foreach (var sl in (List<string>)ViewBag.ListStation)
+                            {
+                                <option>@sl</option>
+                            }
+                        </select>
+                        <button type="submit" onclick="ShowProgress()" class="btn btn-primary">Submit</button>
+                    }
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">
+                        Search FIR using status
+                    </a>
+                </h4>
+            </div>
+            <div id="collapse3" class="panel-collapse collapse">
+                <div class="panel-body">
+                    @using (Html.BeginForm("showFIRListByStatus", "HQDashboard"))
+                    {
+                        <label for="sel1">Select FIR Status</label>
+                        <select class="form-control" name="selStatus">
+                            <option disabled selected>Status</option>
+                            <option>Pending</option>
+                            <option>Done</option>
+
+                        </select>
+                        <button type="submit" onclick="ShowProgress()" class="btn btn-primary">Submit</button>
+                    }
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    @*<div class="saveError" align="center" style="visibility:@ViewBag.VisibilityE;">
+            <img src="~/Content/Images/error.png" style="max-height:40px; max-width:40px; background:white;" />
+            Something went wrong , please try again.
+        </div>*@
+</div>
+
+<div class="loading" align="center">
+    Loading. Please wait.<br />
+    <br />
+    @*<img src="~/Content/ajax-loader.gif" style="max-height:inherit; max-width:inherit;" />*@
+    <i class="fa fa-2x fa-spinner fa-spin"></i>
+</div>
